@@ -145,8 +145,10 @@ img {
    HEADER (Glassmorphism)
    ========================================================================== */
 .site-header {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
     background: var(--glass-bg);
     backdrop-filter: var(--glass-blur);
@@ -216,7 +218,8 @@ img {
    ========================================================================== */
 .hero {
     position: relative;
-    padding-top: var(--space-12);
+    /* padding-top increased to compensate for fixed header (88px) */
+    padding-top: calc(var(--space-12) + 88px);
     padding-bottom: var(--space-16);
     background-color: var(--color-gray-50);
     overflow: hidden;
@@ -1309,7 +1312,8 @@ img {
 
     /* Hero */
     .hero {
-        padding: 88px 0 48px;
+        /* padding-top increased to compensate for fixed header (72px on mobile) */
+        padding: calc(88px + 72px) 0 48px;
         min-height: 100svh;
         display: block;
     }
