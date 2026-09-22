@@ -61,6 +61,7 @@ body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* Prevent horizontal scroll on mobile */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -1431,6 +1432,37 @@ img {
 
     /* Actualités */
     .news-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+    }
+
+    /* Search Banner → colonne sur mobile */
+    .search-banner {
+        flex-direction: column;
+    }
+    .search-left {
+        flex: none;
+        width: 100%;
+    }
+    .match-right {
+        flex: none;
+        width: 100%;
+    }
+    .search-filters {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-2);
+    }
+    .search-main-input {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+    .search-main-input .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Target Split (Entreprise / Candidat) → 1 colonne */
+    .target-split {
         grid-template-columns: 1fr;
         gap: var(--space-4);
     }
