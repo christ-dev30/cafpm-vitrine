@@ -1171,83 +1171,254 @@ img {
 }
 
 /* ==========================================================================
-   MOBILE RESPONSIVENESS
+   HAMBURGER BUTTON (Mobile only)
    ========================================================================== */
-@media (max-width: 768px) {
-    /* Typographie */
-    h1 {
-        font-size: 2.5rem;
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 6px;
+    transition: background var(--transition-fast);
+    z-index: 1001;
+}
+.hamburger:hover {
+    background: rgba(10, 25, 48, 0.06);
+}
+.hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--color-navy);
+    border-radius: 2px;
+    transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-origin: center;
+}
+/* Hamburger → X animation */
+.hamburger.is-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.hamburger.is-open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+.hamburger.is-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile nav CTAs hidden on desktop */
+.nav-mobile-ctas {
+    display: none;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS — Tablette (≤ 991px)
+   ========================================================================== */
+@media (max-width: 991px) {
+    .header-inner {
+        height: 72px;
     }
-    h2 {
-        font-size: 2rem;
-    }
-    h3 {
-        font-size: 1.5rem;
-    }
-    .section-head h2 {
-        font-size: 2rem;
-    }
-    
-    /* Header (Menu) */
-    .header-nav {
-        display: none; /* Cache les liens de navigation pour éviter de casser le header, un menu burger serait idéal dans une v2 */
+    /* On tablets, keep nav but shrink gap */
+    .main-nav {
+        gap: var(--space-3);
     }
     .header-actions .btn-secondary {
-        display: none; /* Cache le bouton secondaire pour laisser la place au CTA principal */
+        display: none;
     }
-    .header-actions .btn {
-        padding: 8px 16px;
-        font-size: 0.875rem;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS — Téléphone (≤ 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+
+    /* Container padding */
+    .container {
+        padding: 0 var(--space-2);
     }
 
-    /* Hero Section */
+    /* --- HEADER & NAV --- */
+    .header-inner {
+        height: 64px;
+    }
+    .hamburger {
+        display: flex;
+    }
+    /* Hide desktop nav & CTAs */
+    .main-nav {
+        display: none;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--color-white);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: var(--space-3) var(--space-4);
+        z-index: 999;
+        overflow-y: auto;
+        box-shadow: 0 4px 32px rgba(10, 25, 48, 0.15);
+    }
+    .main-nav.is-open {
+        display: flex;
+    }
+    .nav-link {
+        display: block;
+        width: 100%;
+        font-size: 1.25rem;
+        font-weight: 600;
+        padding: var(--space-2) 0;
+        border-bottom: 1px solid var(--color-gray-100);
+        color: var(--color-navy);
+    }
+    .nav-link:last-of-type {
+        border-bottom: none;
+    }
+    .nav-mobile-ctas {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        width: 100%;
+        margin-top: var(--space-4);
+        padding-top: var(--space-4);
+        border-top: 1px solid var(--color-gray-100);
+    }
+    .nav-mobile-ctas .btn {
+        width: 100%;
+        justify-content: center;
+        padding: var(--space-2);
+    }
+    .header-actions .btn {
+        display: none;
+    }
+
+    /* --- TYPOGRAPHIE --- */
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 1.875rem; }
+    h3 { font-size: 1.375rem; }
+    .section-head h2 { font-size: 1.875rem; }
+
+    /* --- HERO --- */
     .hero {
-        padding: 140px 0 60px;
+        padding: 100px 0 48px;
         min-height: auto;
+    }
+    .hero-bg {
+        /* Cache la grande image de droite sur mobile */
+        display: none;
+    }
+    .hero-badge {
+        display: none;
+    }
+    .hero-content {
+        max-width: 100%;
+    }
+    .hero h1 {
+        font-size: 2.25rem;
     }
     .hero-tags {
         flex-wrap: wrap;
-        justify-content: flex-start;
-        gap: var(--space-3);
+        gap: 8px;
     }
     .hero-cta-group {
         flex-direction: column;
-        gap: var(--space-4);
+        gap: var(--space-2);
     }
     .hero-cta-card {
         width: 100%;
     }
+    .hero-stats {
+        flex-wrap: wrap;
+        gap: var(--space-4);
+    }
 
-    /* Espacements globaux */
-    .solutions, .secteurs, .about-section, .testimonials-section, .news-section {
+    /* --- SECTIONS: PADDING --- */
+    .solutions,
+    .secteurs,
+    .about-section,
+    .testimonials-section,
+    .news-section {
         padding: var(--space-8) 0;
     }
 
-    /* Grilles et Layouts */
-    .about-visual {
-        aspect-ratio: 1/1; /* Plus carré sur mobile */
-    }
-    .solutions-grid, .secteurs-grid, .news-grid {
+    /* --- À PROPOS --- */
+    .about-grid {
         grid-template-columns: 1fr;
     }
-    
-    /* Cartes */
-    .solution-card, .secteur-card, .news-card {
-        padding: var(--space-6);
+    .about-visual {
+        aspect-ratio: 4/3;
+        order: -1; /* Image en premier sur mobile */
     }
 
-    /* Testimonials Marquee */
-    .testimonial-card {
-        width: 280px; /* Plus petit pour mobile */
-        padding: var(--space-6);
+    /* --- SOLUTIONS & SECTEURS --- */
+    .solutions-grid,
+    .secteurs-grid {
+        grid-template-columns: 1fr;
     }
-    
-    /* Footer */
+    .solution-card,
+    .secteur-card {
+        padding: var(--space-4);
+    }
+
+    /* --- ACTUALITÉS --- */
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* --- TÉMOIGNAGES (Marquee) --- */
+    .testimonial-card {
+        width: 280px;
+        padding: var(--space-4);
+    }
+
+    /* --- FOOTER --- */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+    .footer-newsletter {
+        width: 100%;
+    }
+    .newsletter-form {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+    .newsletter-form input,
+    .newsletter-form .btn {
+        width: 100%;
+    }
     .footer-bottom {
         flex-direction: column;
         text-align: center;
-        gap: var(--space-4);
+        gap: var(--space-3);
     }
+
+    /* --- DRAWERS (panneau latéral → plein écran) --- */
+    .drawer {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+/* ==========================================================================
+   TRÈS PETITS ÉCRANS (≤ 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+    h1 { font-size: 1.875rem; }
+    .hero h1 { font-size: 1.875rem; }
+    .brand-name { font-size: 1.4rem; }
+    .hero-tags span { font-size: 0.65rem; }
+    .section-eyebrow { font-size: 0.7rem; }
+    .testimonial-card { width: 240px; }
 }
 
 /* Très petits écrans */

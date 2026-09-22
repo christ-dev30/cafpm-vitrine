@@ -99,4 +99,30 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    /* ==========================================================================
+       5. HAMBURGER MENU (Mobile)
+       ========================================================================== */
+    const hamburger = document.getElementById('hamburger');
+    const mainNav = document.getElementById('main-nav');
+
+    if (hamburger && mainNav) {
+        hamburger.addEventListener('click', () => {
+            const isOpen = mainNav.classList.toggle('is-open');
+            hamburger.classList.toggle('is-open', isOpen);
+            hamburger.setAttribute('aria-expanded', isOpen);
+            // Prevent body scroll when menu is open
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+
+        // Close menu when a nav link is clicked
+        mainNav.querySelectorAll('.nav-link, .modal-trigger').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('is-open');
+                hamburger.classList.remove('is-open');
+                hamburger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        });
+    }
 });

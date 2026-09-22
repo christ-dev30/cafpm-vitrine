@@ -25,12 +25,17 @@
                     <span class="brand-suffix">sarl</span>
                 </div>
             </a>
-            <nav class="main-nav">
-                <a href="#hero">Accueil</a>
-                <a href="#apropos">À Propos</a>
-                <a href="#solutions">Nos solutions</a>
-                <a href="#secteurs">Secteurs</a>
-                <a href="#contact">Contact</a>
+            <nav class="main-nav" id="main-nav">
+                <a href="#hero" class="nav-link">Accueil</a>
+                <a href="#apropos" class="nav-link">À Propos</a>
+                <a href="#solutions" class="nav-link">Nos solutions</a>
+                <a href="#secteurs" class="nav-link">Secteurs</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <!-- Mobile only CTAs inside nav -->
+                <div class="nav-mobile-ctas">
+                    <button class="btn btn-secondary modal-trigger" data-target="modal-login">Espace client</button>
+                    <button class="btn btn-primary modal-trigger" data-target="drawer-form">Déposer un besoin</button>
+                </div>
             </nav>
             <div class="header-actions">
                 <button class="btn btn-secondary modal-trigger" data-target="modal-login">
@@ -46,6 +51,12 @@
                         <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                     </svg>
                     Déposer un besoin
+                </button>
+                <!-- Hamburger button (mobile only) -->
+                <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
             </div>
         </div>
