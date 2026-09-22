@@ -25,17 +25,12 @@
                     <span class="brand-suffix">sarl</span>
                 </div>
             </a>
-            <nav class="main-nav" id="main-nav">
-                <a href="#hero" class="nav-link">Accueil</a>
-                <a href="#apropos" class="nav-link">À Propos</a>
-                <a href="#solutions" class="nav-link">Nos solutions</a>
-                <a href="#secteurs" class="nav-link">Secteurs</a>
-                <a href="#contact" class="nav-link">Contact</a>
-                <!-- Mobile only CTAs inside nav -->
-                <div class="nav-mobile-ctas">
-                    <button class="btn btn-secondary modal-trigger" data-target="modal-login">Espace client</button>
-                    <button class="btn btn-primary modal-trigger" data-target="drawer-form">Déposer un besoin</button>
-                </div>
+            <nav class="main-nav">
+                <a href="#hero">Accueil</a>
+                <a href="#apropos">À Propos</a>
+                <a href="#solutions">Nos solutions</a>
+                <a href="#secteurs">Secteurs</a>
+                <a href="#contact">Contact</a>
             </nav>
             <div class="header-actions">
                 <button class="btn btn-secondary modal-trigger" data-target="modal-login">
@@ -52,14 +47,27 @@
                     </svg>
                     Déposer un besoin
                 </button>
-                <!-- Hamburger button (mobile only) -->
-                <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+                <!-- Hamburger Button (visible on mobile only) -->
+                <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
             </div>
         </div>
+        <!-- Mobile Navigation Overlay -->
+        <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
+            <a href="#hero" class="mobile-nav-link">Accueil</a>
+            <a href="#apropos" class="mobile-nav-link">À Propos</a>
+            <a href="#solutions" class="mobile-nav-link">Nos solutions</a>
+            <a href="#secteurs" class="mobile-nav-link">Secteurs</a>
+            <a href="#references" class="mobile-nav-link">Témoignages</a>
+            <a href="#contact" class="mobile-nav-link">Contact</a>
+            <div class="mobile-nav-actions">
+                <button class="btn btn-secondary modal-trigger" data-target="modal-login">Espace client</button>
+                <button class="btn btn-primary modal-trigger" data-target="drawer-form">Déposer un besoin</button>
+            </div>
+        </nav>
     </header>
 
     <!-- Hero Section -->

@@ -101,26 +101,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ==========================================================================
-       5. HAMBURGER MENU (Mobile)
+       5. HAMBURGER MOBILE MENU
        ========================================================================== */
     const hamburger = document.getElementById('hamburger');
-    const mainNav = document.getElementById('main-nav');
+    const mobileNav = document.getElementById('mobile-nav');
 
-    if (hamburger && mainNav) {
+    if (hamburger && mobileNav) {
         hamburger.addEventListener('click', () => {
-            const isOpen = mainNav.classList.toggle('is-open');
-            hamburger.classList.toggle('is-open', isOpen);
+            const isOpen = hamburger.classList.toggle('is-open');
+            mobileNav.classList.toggle('is-open');
             hamburger.setAttribute('aria-expanded', isOpen);
-            // Prevent body scroll when menu is open
+            mobileNav.setAttribute('aria-hidden', !isOpen);
             document.body.style.overflow = isOpen ? 'hidden' : '';
         });
 
-        // Close menu when a nav link is clicked
-        mainNav.querySelectorAll('.nav-link, .modal-trigger').forEach(link => {
+        // Close menu when clicking a nav link
+        mobileNav.querySelectorAll('.mobile-nav-link').forEach(link => {
             link.addEventListener('click', () => {
-                mainNav.classList.remove('is-open');
                 hamburger.classList.remove('is-open');
+                mobileNav.classList.remove('is-open');
                 hamburger.setAttribute('aria-expanded', 'false');
+                mobileNav.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Close menu when a modal is triggered from inside
+        mobileNav.querySelectorAll('.modal-trigger').forEach(btn => {
+            btn.addEventListener('click', () => {
+                hamburger.classList.remove('is-open');
+                mobileNav.classList.remove('is-open');
+                hamburger.setAttribute('aria-expanded', 'false');
+                mobileNav.setAttribute('aria-hidden', 'true');
                 document.body.style.overflow = '';
             });
         });
