@@ -1215,6 +1215,7 @@ img {
 }
 
 .mobile-nav {
+    /* Hidden by default on ALL screen sizes */
     display: none;
     position: absolute;
     top: 100%;
@@ -1227,7 +1228,12 @@ img {
     flex-direction: column;
     gap: var(--space-2);
     box-shadow: var(--shadow-md);
-    z-index: 999;
+    z-index: 1001;
+}
+
+/* Only show when JS adds .is-open class */
+.mobile-nav.is-open {
+    display: flex;
 }
 
 .mobile-nav-link {
@@ -1279,6 +1285,10 @@ img {
         display: none;
     }
     .mobile-nav {
+        /* stays hidden until .is-open is toggled by JS */
+        display: none;
+    }
+    .mobile-nav.is-open {
         display: flex;
     }
     .header-inner {
