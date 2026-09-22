@@ -1490,9 +1490,23 @@ img {
     }
 
     /* Footer */
-    .footer-grid {
+    .footer-top {
         grid-template-columns: 1fr;
-        gap: var(--space-6);
+        gap: var(--space-8);
+        text-align: center;
+    }
+    .footer-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-brand {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-col ul li {
+        justify-content: center;
     }
     .footer-bottom {
         flex-direction: column;
