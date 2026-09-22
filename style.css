@@ -1169,6 +1169,99 @@ img {
     margin-bottom: var(--space-3);
     line-height: 1.3;
 }
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Typographie */
+    h1 {
+        font-size: 2.5rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    h3 {
+        font-size: 1.5rem;
+    }
+    .section-head h2 {
+        font-size: 2rem;
+    }
+    
+    /* Header (Menu) */
+    .header-nav {
+        display: none; /* Cache les liens de navigation pour éviter de casser le header, un menu burger serait idéal dans une v2 */
+    }
+    .header-actions .btn-secondary {
+        display: none; /* Cache le bouton secondaire pour laisser la place au CTA principal */
+    }
+    .header-actions .btn {
+        padding: 8px 16px;
+        font-size: 0.875rem;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 140px 0 60px;
+        min-height: auto;
+    }
+    .hero-tags {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: var(--space-3);
+    }
+    .hero-cta-group {
+        flex-direction: column;
+        gap: var(--space-4);
+    }
+    .hero-cta-card {
+        width: 100%;
+    }
+
+    /* Espacements globaux */
+    .solutions, .secteurs, .about-section, .testimonials-section, .news-section {
+        padding: var(--space-8) 0;
+    }
+
+    /* Grilles et Layouts */
+    .about-visual {
+        aspect-ratio: 1/1; /* Plus carré sur mobile */
+    }
+    .solutions-grid, .secteurs-grid, .news-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Cartes */
+    .solution-card, .secteur-card, .news-card {
+        padding: var(--space-6);
+    }
+
+    /* Testimonials Marquee */
+    .testimonial-card {
+        width: 280px; /* Plus petit pour mobile */
+        padding: var(--space-6);
+    }
+    
+    /* Footer */
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-4);
+    }
+}
+
+/* Très petits écrans */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+    .hero-tags span {
+        font-size: 0.65rem;
+    }
+    .section-eyebrow {
+        font-size: 0.75rem;
+    }
+}
 .news-card p {
     color: var(--color-navy-muted);
     font-size: 0.875rem;
