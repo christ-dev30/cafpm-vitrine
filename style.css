@@ -114,12 +114,30 @@ img {
 .btn-primary {
     background-color: var(--color-gold);
     color: var(--color-navy);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+    transform: rotate(30deg) translateX(-100%);
+    transition: transform 0.6s ease;
 }
 
 .btn-primary:hover {
     background-color: var(--color-gold-hover);
     transform: translateY(-2px);
     box-shadow: 0 8px 16px rgba(229, 180, 38, 0.25);
+}
+
+.btn-primary:hover::after {
+    transform: rotate(30deg) translateX(100%);
 }
 
 .btn-secondary {
@@ -355,6 +373,11 @@ img {
     color: var(--color-gray-800);
 }
 
+@keyframes kenBurns {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+}
+
 /* Background Hero Image & Badge */
 .hero-bg {
     position: absolute;
@@ -367,6 +390,12 @@ img {
     background-position: center;
     z-index: 1;
     clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+    animation: kenBurns 20s alternate infinite ease-in-out;
+}
+
+@keyframes floatBadge {
+    0%, 100% { transform: translateY(0) rotate(3deg); }
+    50% { transform: translateY(-10px) rotate(3deg); }
 }
 
 .hero-badge {
@@ -385,6 +414,7 @@ img {
     color: var(--color-navy);
     border: 1px solid rgba(255,255,255,0.4);
     z-index: 3;
+    animation: floatBadge 6s ease-in-out infinite;
 }
 
 /* ==========================================================================
@@ -469,7 +499,7 @@ img {
 .solution-card:hover .sol-icon-wrapper {
     background: var(--color-navy);
     color: var(--color-white);
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(5deg);
 }
 
 .solution-card h3 {
@@ -673,6 +703,11 @@ img {
     width: 200px;
     background-size: cover;
     background-position: center;
+    transition: transform 0.8s var(--transition-spring);
+}
+
+.target-card:hover .tc-image {
+    transform: scale(1.05);
 }
 
 /* ==========================================================================
@@ -694,6 +729,13 @@ img {
     border-radius: 8px;
     padding: var(--space-4);
     border: 1px solid var(--color-gray-200);
+    transition: all var(--transition-spring);
+}
+
+.secteur-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-gold);
 }
 
 .secteur-head {
@@ -705,6 +747,12 @@ img {
 
 .secteur-head svg {
     color: var(--color-navy);
+    transition: all var(--transition-spring);
+}
+
+.secteur-card:hover .secteur-head svg {
+    color: var(--color-gold);
+    transform: scale(1.1);
 }
 
 .secteur-card h3 {
@@ -815,14 +863,25 @@ img {
 }
 
 /* 2. Scroll Reveal Animations */
-.reveal {
+.reveal, .reveal-left, .reveal-right, .reveal-scale {
     opacity: 0;
-    transform: translateY(30px);
     transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-.reveal.active {
+.reveal {
+    transform: translateY(30px);
+}
+.reveal-left {
+    transform: translateX(-40px);
+}
+.reveal-right {
+    transform: translateX(40px);
+}
+.reveal-scale {
+    transform: scale(0.9);
+}
+.reveal.active, .reveal-left.active, .reveal-right.active, .reveal-scale.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate(0) scale(1);
 }
 
 /* Header Shrink on Scroll */

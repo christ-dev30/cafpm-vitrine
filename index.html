@@ -164,7 +164,7 @@
     <section class="about-section" id="apropos">
         <div class="container">
             <div class="about-grid">
-                <div class="about-text reveal">
+                <div class="about-text reveal-left">
                     <span class="section-eyebrow">À Propos de CAFPM</span>
                     <h2>L'excellence des ressources humaines en Côte d'Ivoire</h2>
                     <p class="about-lead">Basée à Abidjan, Cocody, CAFPM SARL est reconnue pour son expertise pointue dans le placement de personnel, la mise à disposition de main-d'œuvre temporaire et l'accompagnement stratégique RH.</p>
@@ -187,7 +187,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="about-visual reveal" style="transition-delay: 0.2s;">
+                <div class="about-visual reveal-right" style="transition-delay: 0.2s;">
                     <img src="assets/images/entreprise.png" alt="Entreprise en CI" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; box-shadow: var(--shadow-float);">
                 </div>
             </div>
@@ -203,7 +203,7 @@
             </div>
             
             <div class="solutions-grid">
-                <a href="#" class="solution-card reveal" style="transition-delay: 0s;" onclick="event.preventDefault(); document.getElementById('toast').classList.add('show'); setTimeout(()=>document.getElementById('toast').classList.remove('show'), 3000);">
+                <a href="#" class="solution-card reveal" style="transition-delay: 0s;">
                     <div class="sol-icon-wrapper">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                     </div>
@@ -211,7 +211,7 @@
                     <p>Une réponse rapide et flexible à vos besoins ponctuels ou saisonniers.</p>
                     <span class="link-arrow">En savoir plus &rarr;</span>
                 </a>
-                <a href="#" class="solution-card reveal" style="transition-delay: 0.1s;" onclick="event.preventDefault(); document.getElementById('toast').classList.add('show'); setTimeout(()=>document.getElementById('toast').classList.remove('show'), 3000);">
+                <a href="#" class="solution-card reveal" style="transition-delay: 0.1s;">
                     <div class="sol-icon-wrapper" style="background: var(--color-gold); color: var(--color-white);">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                     </div>
@@ -219,7 +219,7 @@
                     <p>Nous trouvons pour vous les meilleurs talents, en adéquation avec vos exigences.</p>
                     <span class="link-arrow">En savoir plus &rarr;</span>
                 </a>
-                <a href="#" class="solution-card reveal" style="transition-delay: 0.2s;" onclick="event.preventDefault(); document.getElementById('toast').classList.add('show'); setTimeout(()=>document.getElementById('toast').classList.remove('show'), 3000);">
+                <a href="#" class="solution-card reveal" style="transition-delay: 0.2s;">
                     <div class="sol-icon-wrapper">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                     </div>
@@ -227,7 +227,7 @@
                     <p>Externalisez la gestion de vos ressources humaines et concentrez-vous sur votre activité.</p>
                     <span class="link-arrow">En savoir plus &rarr;</span>
                 </a>
-                <a href="#" class="solution-card reveal" style="transition-delay: 0.3s;" onclick="event.preventDefault(); document.getElementById('toast').classList.add('show'); setTimeout(()=>document.getElementById('toast').classList.remove('show'), 3000);">
+                <a href="#" class="solution-card reveal" style="transition-delay: 0.3s;">
                     <div class="sol-icon-wrapper">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                     </div>
@@ -235,7 +235,7 @@
                     <p>Développez les compétences de vos équipes avec des programmes adaptés au marché.</p>
                     <span class="link-arrow">En savoir plus &rarr;</span>
                 </a>
-                <a href="#" class="solution-card reveal" style="transition-delay: 0.4s;" onclick="event.preventDefault(); document.getElementById('toast').classList.add('show'); setTimeout(()=>document.getElementById('toast').classList.remove('show'), 3000);">
+                <a href="#" class="solution-card reveal" style="transition-delay: 0.4s;">
                     <div class="sol-icon-wrapper">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
                     </div>
@@ -246,11 +246,11 @@
             </div>
 
             <!-- Search Banner -->
-            <div class="search-banner reveal" style="margin-top: var(--space-12);">
+            <div class="search-banner reveal-scale" style="margin-top: var(--space-12);">
                 <div class="search-left">
                     <h3>Trouvez le profil qu'il vous faut</h3>
                     <p>Recherchez parmi des milliers de profils qualifiés et disponibles.</p>
-                    <form class="search-form" onsubmit="event.preventDefault(); document.getElementById('toast-search').classList.add('show'); setTimeout(()=>document.getElementById('toast-search').classList.remove('show'), 3000);">
+                    <form class="search-form">
                         <div class="search-main-input">
                             <input type="text" placeholder="Ex: Agent d'entretien, Comptable, Vendeur..." required>
                             <button type="submit" class="btn btn-primary">
@@ -278,7 +278,7 @@
 
             <!-- Target Split -->
             <div class="target-split">
-                <div class="target-card reveal" style="transition-delay: 0s;">
+                <div class="target-card reveal-left" style="transition-delay: 0s;">
                     <div class="tc-content tc-entreprise">
                         <h3>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
@@ -295,7 +295,7 @@
                     <div class="tc-image" style="background-image: url('assets/images/entreprise.png');"></div>
                 </div>
 
-                <div class="target-card reveal" style="transition-delay: 0.2s;">
+                <div class="target-card reveal-right" style="transition-delay: 0.2s;">
                     <div class="tc-content tc-candidat">
                         <h3>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
@@ -533,7 +533,7 @@
                 <div class="footer-newsletter">
                     <h4>Newsletter</h4>
                     <p>Recevez nos actualités et offres.</p>
-                    <form class="newsletter-form" onsubmit="event.preventDefault(); document.getElementById('toast').classList.add('show'); setTimeout(()=>document.getElementById('toast').classList.remove('show'), 3000);">
+                    <form class="newsletter-form">
                         <input type="email" placeholder="Votre email" required>
                         <button type="submit" class="btn btn-primary">S'abonner &rarr;</button>
                     </form>
@@ -558,7 +558,7 @@
             <h3>Connexion Espace Client</h3>
             <p>Accédez à votre tableau de bord sécurisé.</p>
         </div>
-        <form class="interactive-form" onsubmit="event.preventDefault(); document.getElementById('toast').classList.add('show'); setTimeout(()=>document.getElementById('toast').classList.remove('show'), 3000); document.querySelector('.modal-close').click();">
+        <form class="interactive-form">
             <div class="input-group">
                 <label>Adresse Email</label>
                 <input type="email" required placeholder="contact@entreprise.com">
@@ -580,7 +580,7 @@
             <p>Décrivez votre besoin en personnel, un conseiller CAFPM vous recontactera sous 24h.</p>
         </div>
         <div class="drawer-content">
-            <form class="interactive-form" onsubmit="event.preventDefault(); document.getElementById('toast').classList.add('show'); setTimeout(()=>document.getElementById('toast').classList.remove('show'), 3000); document.querySelector('.modal-close').click();">
+            <form class="interactive-form">
                 <div class="input-group">
                     <label>Nom de l'entreprise</label>
                     <input type="text" required>
@@ -619,7 +619,7 @@
             <p>Rejoignez la base de données CAFPM et accédez aux meilleures offres d'emploi.</p>
         </div>
         <div class="drawer-content">
-            <form class="interactive-form" onsubmit="event.preventDefault(); document.getElementById('toast').classList.add('show'); setTimeout(()=>document.getElementById('toast').classList.remove('show'), 3000); document.querySelector('.modal-close').click();">
+            <form class="interactive-form">
                 <div class="input-group">
                     <label>Nom complet</label>
                     <input type="text" required>

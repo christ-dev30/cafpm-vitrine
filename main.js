@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ==========================================================================
        1. SCROLL REVEAL ANIMATIONS (Intersection Observer)
        ========================================================================== */
-    const revealElements = document.querySelectorAll('.reveal');
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
     
     const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -137,4 +137,55 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    /* ==========================================================================
+       6. INTERACTIVE ELEMENTS (Toasts & Forms) - CSP Compliant
+       ========================================================================== */
+    const toast = document.getElementById('toast');
+    const toastSearch = document.getElementById('toast-search');
+
+    function showToast(toastEl) {
+        if (!toastEl) return;
+        toastEl.classList.add('show');
+        setTimeout(() => {
+            toastEl.classList.remove('show');
+        }, 3000);
+    }
+
+    // Solution cards
+    const solutionCards = document.querySelectorAll('.solution-card');
+    solutionCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            e.preventDefault();
+            showToast(toast);
+        });
+    });
+
+    // Search form
+    const searchForm = document.querySelector('.search-form');
+    if (searchForm) {
+        searchForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            showToast(toastSearch);
+        });
+    }
+
+    // Newsletter form
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            showToast(toast);
+        });
+    }
+
+    // Interactive forms (Modals / Drawers)
+    const interactiveForms = document.querySelectorAll('.interactive-form');
+    interactiveForms.forEach(form => {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            showToast(toast);
+            closeModal();
+        });
+    });
 });
