@@ -1,0 +1,26 @@
+# ==========================================================================
+# SÉCURITÉ APACHE (racine du site)
+# ==========================================================================
+
+# Page d'accueil par défaut
+DirectoryIndex index.php
+
+# Page affichée quand une adresse n'existe pas (créée à la racine du site).
+# Si le site est installé dans un sous-dossier, adaptez le chemin (ex. /cafpm/404.php)
+ErrorDocument 404 /404.php
+
+# Interdit l'affichage de la liste des fichiers d'un dossier
+Options -Indexes
+
+# Bloque l'accès direct aux dossiers internes (config, includes, partials, database)
+RedirectMatch 403 ^/?(.*/)?(config|includes|partials|database)/
+
+# Fichiers techniques invisibles depuis un navigateur (réponse 404) :
+# dossiers cachés (.git, .vscode...), lanceur Windows, routeur du serveur local
+RedirectMatch 404 /\.(?!well-known)
+RedirectMatch 404 \.(bat|sql|md|example\.php)$
+RedirectMatch 404 ^/?router\.php$
+
+# Le script de création d'administrateur ne s'utilise qu'en ligne de commande :
+# il est invisible depuis un navigateur (réponse 404)
+RedirectMatch 404 ^/?(.*/)?admin/creer-admin\.php$

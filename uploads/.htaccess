@@ -1,0 +1,5 @@
+# ==========================================================================
+# SÉCURITÉ DU DOSSIER UPLOADS (CV des candidats)
+# Personne ne peut ouvrir les CV ni exécuter un fichier déposé ici
+# ==========================================================================
+Require all denied

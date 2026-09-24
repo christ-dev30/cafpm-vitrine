@@ -1,0 +1,6 @@
+# CV envoyés par les candidats (données personnelles, ne pas versionner)
+uploads/cv/*
+!uploads/cv/.gitkeep
+
+# Identifiants de la base de données (confidentiel)
+config/config.local.php
